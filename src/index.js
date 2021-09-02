@@ -25,6 +25,9 @@ class Board extends React.Component {
 
     handleClick(i) {
         const squares = this.state.squares.slice();
+        if (calculateWinner(squares) || squares[i]) {
+            return;
+        }
         squares[i] = this.renderXOrO();
         this.setState({
             squares: squares,
